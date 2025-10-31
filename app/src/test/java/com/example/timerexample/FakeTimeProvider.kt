@@ -1,6 +1,6 @@
 package com.example.timerexample
 
-import kotlinx.coroutines.flow.Flow
+import com.example.timerexample.time.TimeProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.datetime.Instant
 
@@ -17,6 +17,4 @@ class FakeTimeProvider : TimeProvider {
     fun setCurrentTime(instant: Instant) {
         _currentTime.value = instant
     }
-
-    override fun currentTimeFlow(): Flow<Instant> = _currentTime
 }

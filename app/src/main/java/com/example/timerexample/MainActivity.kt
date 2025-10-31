@@ -8,7 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import com.example.timerexample.time.DefaultTimeProvider
+import com.example.timerexample.time.TimeProvider
 import com.example.timerexample.ui.theme.TimerExampleTheme
+import kotlinx.datetime.LocalDateTime
 
 class MainActivity : ComponentActivity() {
 
@@ -20,7 +23,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             TimerExampleTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    TimerScreen(
+                    TicketScreen(
+                        uiState = TicketUiState(
+                            targetDateTime = LocalDateTime(2025, 10, 31, 23, 0, 56),
+                            messageFormat = "あと %1\$s 有効"
+                        ),
                         timeProvider = timeProvider,
                         modifier = Modifier.padding(innerPadding)
                     )

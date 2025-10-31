@@ -1,5 +1,6 @@
 package com.example.timerexample
 
+import com.example.timerexample.time.FakeTimeProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -23,7 +24,7 @@ class TimerViewModelTest {
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
-        fakeTimeProvider = FakeTimeProvider()
+        fakeTimeProvider = com.example.timerexample.time.FakeTimeProvider()
         viewModel = TimerViewModel(fakeTimeProvider)
     }
 

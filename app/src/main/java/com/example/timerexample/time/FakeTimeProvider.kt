@@ -1,7 +1,6 @@
-package com.example.timerexample
+package com.example.timerexample.time
 
 import kotlinx.datetime.LocalDateTime
-import kotlinx.datetime.TimeZone
 
 /**
  * テスト用の時刻プロバイダー
@@ -9,13 +8,8 @@ import kotlinx.datetime.TimeZone
  */
 class FakeTimeProvider(
     private var currentDateTime: LocalDateTime,
-    private val targetTime: TargetTime
 ) : TimeProvider {
     override fun getCurrentDateTime(): LocalDateTime = currentDateTime
-
-    override fun getTimeZone(): TimeZone = TimeZone.UTC
-
-    override suspend fun getTargetDateTime(): TargetTime = targetTime
 
     /**
      * テスト用: 現在時刻を手動で設定
